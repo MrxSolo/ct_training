@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+</head>
+<body>
+    <form>  
+        <label> Select Titles </label>  
+        <select>   
+        </select>  
+        </form>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $.ajax({
+                url: "https://jsonplaceholder.typicode.com/todos",
+                type:"GET",
+                success:(data)=>{
+                    $.each(data,(key,value)=>{
+                        $('select').append("<option>"+value.title+"</option>")
+                    })
+                
+                }
+
+            })
+        })
+        
+    </script>
+</body>
+</html>

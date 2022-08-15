@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+<body>
+    <form>  
+        <label> <strong>User Id</strong> </label> 
+        <input id="user_id" type="text"> 
+        <br><br><br>
+        <label> <strong>Title</strong> </label> 
+        <input id="title" type="text"> 
+        <br><br><br>
+        <label> <strong>Completed</strong> </label> 
+        <input type="checkbox" name="" id=""> 
+        <br><br><br>
+        <input type="button" value="Submit">
+        
+
+    </form>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $(':button').click(()=>{
+                var user_id=$('#user_id').val()
+                var title=$('#title').val()
+                var checkbox=$(':checkbox').is(":checked")
+                $.ajax({
+                    url:"https://jsonplaceholder.typicode.com/todos",
+                    type:"POST",
+
+                    data:{
+                        user_id:user_id,
+                        title:title,
+                        checkbox:checkbox
+                        },
+                    success:function(response) {
+                            console.log("success")
+                        }
+
+            })
+
+            })
+          
+        })
+    </script>
+</body>
+</html>
